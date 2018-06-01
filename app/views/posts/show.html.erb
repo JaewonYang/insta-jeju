@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <img src="<%= @post.image.url %>" >
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user.name %>
+</p>
+
+<p>
+  <strong>Likey:</strong>
+  <%= @post.like_users.count %>
+</p>
+
+<p>
+  <%= link_to 'Like', like_post_path, method: :post %>
+</p>
+
+<%= @post.like_users.ids %>
+
+
+<% if can? :manage, @post %>
+  <%= link_to 'Edit', edit_post_path(@post) %> 
+<% end %>
+
+<%= link_to 'Back', posts_path %>
